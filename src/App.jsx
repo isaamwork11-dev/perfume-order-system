@@ -142,18 +142,36 @@ export default function App () {
       return
     }
 
-    const productList = cart
-      .map(
-        item =>
-          `• ${item.name} x${item.qty} (${item.size}) — Rs.${
-            item.price * item.qty
-          }`
-      )
-      .join('\n')
+    // Separate Regular and Premium products
+    const regularItems = cart.filter(item => item.type === 'regular')
+    const premiumItems = cart.filter(item => item.type === 'premium')
+
+    const regularList =
+      regularItems.length > 0
+        ? regularItems
+            .map(
+              item =>
+                `• ${item.name} x${item.qty} (${item.size}) — Rs.${
+                  item.price * item.qty
+                }`
+            )
+            .join('\n')
+        : 'None'
+
+    const premiumList =
+      premiumItems.length > 0
+        ? premiumItems
+            .map(
+              item =>
+                `• ${item.name} x${item.qty} (${item.size}) — Rs.${
+                  item.price * item.qty
+                }`
+            )
+            .join('\n')
+        : 'None'
 
     const message = `
 🛍 SILAWAT SCENT ORDER
-━━━━━━━━━━━━━━━━━━
 
 👤 CUSTOMER:
 ${firstName} ${lastName}
@@ -161,15 +179,16 @@ ${firstName} ${lastName}
 📱 PHONE:
 ${phone}
 
-📦 ORDER DETAILS:
-${productList}
+📦 REGULAR PERFUMES:
+${regularList}
 
-🎁 EID DEAL: ${dealApplied ? 'ACTIVE' : 'OFF'}
-🎟️ PROMO: ${promoApplied ? 'APPLIED (-Rs.300)' : 'NONE'}
+💎 PREMIUM PERFUMES:
+${premiumList}
 
-━━━━━━━━━━━━━━━━━━
-💰 TOTAL: Rs.${finalTotal}
-━━━━━━━━━━━━━━━━━━
+🎁 EID DEAL: ${dealApplied ? 'ACTIVE ✓' : 'OFF'}
+🎟️ PROMO: ${promoApplied ? 'APPLIED (-Rs.300) ✓' : 'NONE'}
+
+💰 TOTAL AMOUNT: Rs.${finalTotal}
 `
 
     window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
