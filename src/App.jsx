@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function App () {
-  const whatsappNumber = '923001234567'
+  const whatsappNumber = '923233348670'
 
   const products = {
     premium: [
@@ -13,7 +13,8 @@ export default function App () {
     regular: [
       { name: 'Fogg', price: 3000 },
       { name: 'Axe', price: 2500 },
-      { name: 'Wild Stone', price: 2800 }
+      { name: 'Wild Stone', price: 2800 },
+      { name: 'Park Avenue', price: 3500 }
     ]
   }
 
