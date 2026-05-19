@@ -16,7 +16,7 @@ export default function App () {
     { name: 'Oud-ul-Arba', price: 1699, size: '50ml', type: 'premium' },
     { name: 'Lavoria', price: 1699, size: '50ml', type: 'premium' },
     { name: 'Janan', price: 1699, size: '50ml', type: 'premium' },
-    { name: 'Rismin', price: 1699, size: '50ml', type: 'premium' }
+    { name: 'Rosmin', price: 1699, size: '50ml', type: 'premium' }
   ]
 
   // ================= STATES =================
